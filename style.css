@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+  background: #333;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* Banner */
+.hero {
+  height: 60vh;
+  background: linear-gradient(90deg, #4facfe, #00f2fe, hsl(180, 6%, 64%));
+  color: white;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Nội dung */
+.content {
+  padding: 40px;
+  text-align: center;
+}
+
+.content button:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgb(53, 222, 235);
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
