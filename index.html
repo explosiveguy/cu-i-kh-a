@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Beginner Website</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Pokemon World</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <h1>My Website</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <h1>Pokémon World</h1>
+        <nav id="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="login.html">Đăng nhập</a>
+            <a href="register.html">Đăng ký</a>
+        </nav>
+    </header>
 
-  <!-- Banner -->
-  <section class="hero">
-    <h2>Welcome to my website</h2>
-    <p id="message">Click the button to see magic ✨</p>
-    <button onclick="changeText()">Click me</button>
-  </section>
+    <!-- ===== Banner ===== -->
+    <section class="hero">
+        <h2>Chào mừng đến với thế giới Pokémon</h2>
+        <p>Khám phá, sưu tập và tìm hiểu các Pokémon nổi tiếng</p>
+        <button onclick="scrollToPokemon()">Khám phá ngay</button>
+    </section>
 
-  <!-- Nội dung -->
-  <main class="content">
-    <h3>Giới thiệu</h3>
-    <button><img src=".\image\tải xuống.jfif" alt="test"></button>
-    <button><img src=".\image\tải xuống.jfif" alt="test"></button>
-    <button><img src=".\image\tải xuống.jfif" alt="test"></button>
-  </main>
+    <!-- ===== Nội dung ===== -->
+    <section class="content">
+        <h2>Danh sách Pokémon</h2>
+        <div id="pokemon-list"></div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 My Website</p>
-  </footer>
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <p>© 2025 Pokémon World | Made for Study</p>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
