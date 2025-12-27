@@ -1,78 +1,187 @@
+/* ===== Reset ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Trebuchet MS", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", Arial, sans-serif;
 }
 
+/* ===== Background Pokémon ===== */
 body {
-    height: 100vh;
-    background: linear-gradient(
-        135deg,
-        #ffcb05,
-        #3b4cca,
-        #ef5350
-    );
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #ffcb05,   /* vàng Pikachu */
+    #3b4cca,   /* xanh Pokemon */
+    #ef5350    /* đỏ Pokemon */
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.register-container {
-    background: white;
-    width: 350px;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+/* ===== Form Box ===== */
+.form-wrapper {
+  width: 380px;
+  background: #ffffff;
+  padding: 32px 36px;
+  border-radius: 18px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+  border: 4px solid #ffcb05;
+  position: relative;
 }
 
-.register-container h2 {
-    margin-bottom: 20px;
-    color: #3b4cca;
+/* Pokéball decoration */
+.form-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(to bottom, #ef5350 50%, #ffffff 50%);
+  border-radius: 50%;
+  border: 3px solid #000;
 }
 
-.register-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+.form-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 2px solid #000;
 }
 
-.register-container input:focus {
-    outline: none;
-    border-color: #3b4cca;
+/* ===== Title ===== */
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 26px;
+  font-size: 28px;
+  color: #3b4cca;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
 }
 
-.register-container button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    background: #ffcb05;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+/* ===== Input Field ===== */
+.form-control {
+  position: relative;
+  margin-bottom: 22px;
 }
 
-.register-container button:hover {
-    background: #f2b807;
-    transform: scale(1.05);
+.form-control input {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  background: transparent;
+  transition: 0.3s;
 }
 
-#message {
-    margin-top: 12px;
-    font-size: 14px;
+.form-control input:focus {
+  border-bottom-color: #ffcb05;
 }
 
-.login-link {
-    margin-top: 15px;
-    font-size: 14px;
+/* ===== Floating Label ===== */
+.form-control label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #777;
+  pointer-events: none;
+  transition: 0.3s;
 }
 
-.login-link a {
-    color: #ef5350;
-    font-weight: bold;
-    text-decoration: none;
+.form-control input:focus + label,
+.form-control input:valid + label {
+  top: -8px;
+  font-size: 12px;
+  color: #3b4cca;
+}
+
+/* ===== Button ===== */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #ffcb05;
+  color: #2a2a2a;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #f2b807;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 203, 5, 0.6);
+}
+
+/* ===== Help & Remember ===== */
+.form-help {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-help a {
+  color: #3b4cca;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-help a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Bottom text ===== */
+.form-wrapper p {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.form-wrapper p a {
+  color: #ef5350;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-wrapper p a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Animation ===== */
+.form-wrapper {
+  animation: popUp 0.6s ease;
+}
+
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

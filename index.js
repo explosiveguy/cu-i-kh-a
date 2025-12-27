@@ -1,8 +1,52 @@
-const API_URL = "https://pokeapi.co/api/v2/pokemon/limit=20";
+// const pokemonList = document.getElementById("pokemon-list");
 
-const pokemonList = document.getElementById("pokemon-List");
+// /* ===== Scroll button ===== */
+// function scrollToPokemon() {
+//   document.querySelector(".content").scrollIntoView({
+//     behavior: "smooth"
+//   });
+// }
 
-fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
+// /* ===== Gọi API Pokémon ===== */
+// async function fetchPokemon() {
+//   try {
+//     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+//     const pokemon = await response.json();
+
+//     renderPokemon(pokemon);
+//   } catch (error) {
+//     console.error("Lỗi gọi API:", error);
+//     pokemonList.innerHTML = "<p>Không tải được Pokémon 😢</p>";
+//   }
+// }
+
+// /* ===== Render Pokémon ===== */
+// function renderPokemon(pokemon) {
+//   pokemonList.innerHTML = `
+//     <div class="pokemon-card">
+//       <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+//       <h3>${pokemon.name}</h3>
+//       <p><strong>Type:</strong> ${pokemon.types
+//         .map(t => t.type.name)
+//         .join(", ")}</p>
+//       <p><strong>Height:</strong> ${pokemon.height}</p>
+//       <p><strong>Weight:</strong> ${pokemon.weight}</p>
+//     </div>
+//   `;
+// }
+
+// /* ===== Load khi mở trang ===== */
+// fetchPokemon();
+
+fetch ("https://pokeapi.co/api/v2/pokemon?limit=20")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+
+const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=20";
+const pokemonListEl = document.getElementById("pokemon-list");
+
+fetch("https://pokeapi.co/api/v2/pokemon?limit=90")
   .then((res) => res.json())
   .then((data) => {
     data.results.forEach(function (item, index) {
@@ -17,10 +61,9 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
             <img src="${imageUrl}" alt="${item.name}" class="pokemon-image" />
           </div>
           <h2 class="pokemon-name">${item.name}</h2>
-          <p class="pokemon-id">#${String(id).padStart(3, "0")}</p>
         `;
 
-      pokemonList.appendChild(card);
+      pokemonListEl.appendChild(card);
     });
   })
   .catch((err) => console.log(err));
